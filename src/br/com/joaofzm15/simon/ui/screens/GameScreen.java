@@ -2,6 +2,7 @@ package br.com.joaofzm15.simon.ui.screens;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import br.com.joaofzm15.simon.ui.entities.Best;
 import br.com.joaofzm15.simon.ui.entities.Button;
@@ -24,7 +25,7 @@ public class GameScreen implements ActionListener
 	protected Button red;
 	protected Button yellow;
 	protected Button blue;
-
+	
 	public GameScreen() {
 		controller = new GameScreenController(this);
 		frame = new Frame("background.png","icon.png");
@@ -95,24 +96,30 @@ public class GameScreen implements ActionListener
 			return;
 		}
 		
-		if (e.getSource() == green.getJButton()) {
-			green.highlight();
-			return;
-		}
-		
-		if (e.getSource() == red.getJButton()) {
-			red.highlight();
-			return;
-		}
-		
-		if (e.getSource() == yellow.getJButton()) {
-			yellow.highlight();
-			return;
-		}
-		
-		if (e.getSource() == blue.getJButton()) {
-			blue.highlight();
-			return;
+		if (controller.playerEnabled) {
+			if (e.getSource() == green.getJButton()) {
+				green.blink();
+				controller.checkIfCorrect(1);
+				return;
+			}
+			
+			if (e.getSource() == red.getJButton()) {
+				red.blink();
+				controller.checkIfCorrect(2);
+				return;
+			}
+			
+			if (e.getSource() == yellow.getJButton()) {
+				yellow.blink();
+				controller.checkIfCorrect(3);
+				return;
+			}
+			
+			if (e.getSource() == blue.getJButton()) {
+				blue.blink();
+				controller.checkIfCorrect(4);
+				return;
+			}
 		}
 	}
 }

@@ -8,18 +8,43 @@ public class GameScreenController {
 	
 	private GameScreen gs;
 	protected ArrayList<Integer> sequence;
-	protected boolean playerEnabled = true;
+	protected boolean playerEnabled = false;
+	
 	
 	public GameScreenController(GameScreen gameScreen) {
 		gs = gameScreen;
 		sequence = new ArrayList<>();
 	}
 	
+	protected int nextInputIndex = 0;
+	public void checkIfCorrect(int option) {
+		if (sequence.get(nextInputIndex)==option) {
+			nextInputIndex++;
+			if (nextInputIndex==sequence.size()) {
+				nextInputIndex=0;
+				playerEnabled=false;
+				gs.score.increaseCounter();
+				gs.best.setBest(gs.score.getScore());
+				
+				new Timer().schedule(new TimerTask() {          
+				    @Override
+				    public void run() {
+				    	cpuTurn();
+				    }
+				}, 1300);
+			}
+		
+		} else {
+			//Player loses
+			sequence.clear();
+			playerEnabled=false;
+			System.out.println("You lose");
+		}
+	}
+	
 	public void cpuTurn() {
-		playerEnabled=false;
 		drawNextButton();
 		blinkAnimation();
-		playerEnabled=true;
 	}
 	
 	private void drawNextButton() {
@@ -27,15 +52,15 @@ public class GameScreenController {
 		sequence.add(next);
 	}
 	
-	private void threadSleep800() {
-		try {
-			Thread.sleep(800);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public void blinkAnimation() {
+		playerEnabled=false;
+		new Timer().schedule(new TimerTask() {          
+		    @Override
+		    public void run() {
+		    	playerEnabled=true;
+		    }
+		}, sequence.size()*800);
+		
 		int priority = 0;
 		for (Integer integer : sequence) {
 			new Timer().schedule(new TimerTask() {          
@@ -54,6 +79,7 @@ public class GameScreenController {
 			}, priority*800);
 			priority++;
 		}
+		
 	}
 	
 	public void exit() {
