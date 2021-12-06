@@ -1,0 +1,36 @@
+======================================================
+Sliding Puzzle
+04/12/2021
+Developed from 02/12/2021 to 04/12/2021.
+author: joaofzm
+======================================================
+
+Background Music:
+"Pacing" by Chad Crouch
+License: Attribuition - NonCommercial 3.0 International License.
+Source: https://freemusicarchive.org/music/Chad_Crouch/Drifter/Pacing_1820
+Acess: 2nd July 2021.
+
+clickSound.wav:
+Author: Mellau
+Original name: Button Click 2.wav
+Original file name: 506053__mellau__button-click-2
+License: Attribution Noncommercial License.
+Source: https://freesound.org/people/Mellau/sounds/506053/
+Acess: 2nd July 2021.
+
+error.wav:
+Author: BloodPixelHero
+Original name: Error
+Original file name: 572936__bloodpixelhero__error
+License: Creative Commons 0 License.
+Source: https://freesound.org/people/BloodPixelHero/sounds/572936/
+Acess: 6th July 2021.
+
+correct.wav
+Author: Robinhood76
+Original name: 10661 bonus correct answer.wav
+Original file name: 607926__robinhood76__10661-bonus-correct-answer
+License: Attribution Noncommercial License.
+Source: https://freesound.org/people/Robinhood76/sounds/607926/
+Acess: 6th December 2021.

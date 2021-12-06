@@ -9,6 +9,8 @@ import java.util.TimerTask;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
+import br.com.joaofzm15.simon.sfx.SoundEffect;
+
 public class Button {
 
 	private JButton jButton;
@@ -64,6 +66,7 @@ public class Button {
 	
 	public void blink() {
 		highlight();
+		new Thread(new SoundEffect("/clickSound.wav")).start();
 		new Timer().schedule(new TimerTask() {          
 		    @Override
 		    public void run() {

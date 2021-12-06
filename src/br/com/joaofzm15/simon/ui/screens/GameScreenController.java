@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import br.com.joaofzm15.simon.sfx.SoundEffect;
+
 public class GameScreenController {
 	
 	private GameScreen gs;
@@ -17,14 +19,16 @@ public class GameScreenController {
 	}
 	
 	protected int nextInputIndex = 0;
+	
 	public void checkIfCorrect(int option) {
 		if (sequence.get(nextInputIndex)==option) {
 			nextInputIndex++;
 			if (nextInputIndex==sequence.size()) {
 				nextInputIndex=0;
 				playerEnabled=false;
-				gs.score.increaseCounter();
+				gs.score.increase();
 				gs.best.setBest(gs.score.getScore());
+				new Thread(new SoundEffect("/correct.wav")).start();
 				
 				new Timer().schedule(new TimerTask() {          
 				    @Override
@@ -35,9 +39,12 @@ public class GameScreenController {
 			}
 		
 		} else {
-			//Player loses
 			sequence.clear();
+			nextInputIndex=0;
 			playerEnabled=false;
+			gs.score.reset();
+			gs.startButton.getJButton().setEnabled(true);
+			new Thread(new SoundEffect("/error.wav")).start();
 			System.out.println("You lose");
 		}
 	}

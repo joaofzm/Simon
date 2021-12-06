@@ -32,19 +32,19 @@ public class Score {
 		jLabel.setVisible(true);
 	}
 	
-	public void resetCounter() {
+	public void reset() {
 		score = 0;
 		jLabel.setText("Score: "+score);
 	}
 	
-	public void increaseCounter() {
+	public void increase() {
 		score++;
 		jLabel.setText("Score: "+score);
 	}
 
 	public void refresh() {
 		int backUp = score;
-		increaseCounter();
+		increase();
 		setScore(backUp);
 	}
 	

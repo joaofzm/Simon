@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import br.com.joaofzm15.simon.sfx.SoundEffect;
 import br.com.joaofzm15.simon.ui.entities.Best;
 import br.com.joaofzm15.simon.ui.entities.Button;
 import br.com.joaofzm15.simon.ui.entities.Frame;
@@ -93,10 +94,12 @@ public class GameScreen implements ActionListener
 		
 		if (e.getSource() == startButton.getJButton()) {
 			controller.cpuTurn();
+			startButton.getJButton().setEnabled(false);
 			return;
 		}
 		
 		if (controller.playerEnabled) {
+
 			if (e.getSource() == green.getJButton()) {
 				green.blink();
 				controller.checkIfCorrect(1);
