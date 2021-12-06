@@ -22,7 +22,7 @@ public class GameScreen implements ActionListener
 		controller = new GameScreenController(this);
 		frame = new Frame("background.png");
 		
-		exitButton = new Button(240, 600, 150, 60, "E X I T", 100, 0, 0, 22, this);
+		exitButton = new Button(240, 600, 150, 60, "E X I T", 0, 135, 255, 22, this);
 		frame.getJFrame().add(exitButton.getJButton());
 		
 		bestLabel = new BestLabel();
@@ -31,7 +31,7 @@ public class GameScreen implements ActionListener
 		score = new Score();
 		frame.getJFrame().add(score.getJLabel());
 
-//		refreshComponents();
+		refreshComponents();
 	}
 
 	public void threadSleep20() {
@@ -43,7 +43,12 @@ public class GameScreen implements ActionListener
 	}
 
 	public void refreshComponents() {
-
+		exitButton.refresh();
+		threadSleep20();
+		score.refresh();
+		threadSleep20();
+		bestLabel.refresh();
+		threadSleep20();
 	}
 
 	@Override

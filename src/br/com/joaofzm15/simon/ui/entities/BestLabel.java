@@ -19,7 +19,7 @@ public class BestLabel {
 		jLabel.setLayout(null);
 		jLabel.setText("Best : 0");
 		jLabel.setFont(new Font("Impact",Font.BOLD, 40));
-		jLabel.setForeground(new Color(255,187,0));
+		jLabel.setForeground(new Color(255,255,255));
 		jLabel.setVisible(true);
 	}
 	
@@ -28,5 +28,11 @@ public class BestLabel {
 			best = value;
 			jLabel.setText("Best : "+best);
 		}
+	}
+	
+	public void refresh() {
+		int backUp = best;
+		setBest(-1000);
+		setBest(backUp);
 	}
 }

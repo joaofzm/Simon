@@ -24,11 +24,13 @@ public class Button {
 		jButton.setForeground(Color.white);
 		jButton.setBackground(new Color(red, green, blue));
 		jButton.setBorder(BorderFactory.createLineBorder(Color.white));
-		jButton.setFocusable(true);
+		jButton.setFocusable(false);
 	}
 
-	public void requestFocus() {
-		jButton.requestFocus();
+	public void refresh() {
+		String backUp=jButton.getText();
+		jButton.setText("refresh");
+		jButton.setText(backUp);
 	}
 
 	public void makeButtonsUnfocusable() {
