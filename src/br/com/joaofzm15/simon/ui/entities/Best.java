@@ -5,7 +5,7 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 
-public class BestLabel {
+public class Best {
 	private JLabel jLabel;
 	public JLabel getJLabel() {
 		return jLabel;
@@ -13,7 +13,7 @@ public class BestLabel {
 	
 	private int best = 0;
 
-	public BestLabel() {
+	public Best() {
 		jLabel = new JLabel();
 		jLabel.setBounds(250,270,1000,300);
 		jLabel.setLayout(null);
