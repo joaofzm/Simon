@@ -26,7 +26,7 @@ public class GameScreen implements ActionListener
 
 	public GameScreen() {
 		controller = new GameScreenController(this);
-		frame = new Frame("background.png");
+		frame = new Frame("background.png","icon.png");
 		
 		score = new Score();
 		frame.getJFrame().add(score.getJLabel());
@@ -37,14 +37,14 @@ public class GameScreen implements ActionListener
 		exitButton = new Button(240, 600, 150, 60, "E X I T", 0, 135, 255, 22, this);
 		frame.getJFrame().add(exitButton.getJButton());
 		
-		green = new Button(610, 50, 310, 310, "", 0, 255, 0, 22, this);
+		green = new Button(610, 50, 310, 310, "", 0, 80, 0, 22, this);
 		frame.getJFrame().add(green.getJButton());
-		red = new Button(920, 50, 310, 310, "", 255, 0, 0, 22, this);
+		red = new Button(920, 50, 310, 310, "", 80, 0, 0, 22, this);
 		frame.getJFrame().add(red.getJButton());
 		
-		yellow = new Button(610, 360, 310, 310, "", 255, 255, 0, 22, this);
+		yellow = new Button(610, 360, 310, 310, "", 80, 80, 0, 22, this);
 		frame.getJFrame().add(yellow.getJButton());
-		blue = new Button(920, 360, 310, 310, "", 0, 0, 255, 22, this);
+		blue = new Button(920, 360, 310, 310, "", 0, 0, 80, 22, this);
 		frame.getJFrame().add(blue.getJButton());
 		
 
@@ -80,6 +80,26 @@ public class GameScreen implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == exitButton.getJButton()) {
 			controller.exit();
+			return;
+		}
+		
+		if (e.getSource() == green.getJButton()) {
+			green.highlight();
+			return;
+		}
+		
+		if (e.getSource() == red.getJButton()) {
+			red.highlight();
+			return;
+		}
+		
+		if (e.getSource() == yellow.getJButton()) {
+			yellow.highlight();
+			return;
+		}
+		
+		if (e.getSource() == blue.getJButton()) {
+			blue.highlight();
 			return;
 		}
 	}
