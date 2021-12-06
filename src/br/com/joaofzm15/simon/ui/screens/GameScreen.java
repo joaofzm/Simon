@@ -48,6 +48,9 @@ public class GameScreen implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		if (e.getSource() == exitButton.getJButton()) {
+			controller.exit();
+			return;
+		}
 	}
 }
