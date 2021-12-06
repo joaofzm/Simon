@@ -1,6 +1,8 @@
 package br.com.joaofzm15.simon.ui.screens;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameScreenController {
 	
@@ -11,6 +13,13 @@ public class GameScreenController {
 	public GameScreenController(GameScreen gameScreen) {
 		gs = gameScreen;
 		sequence = new ArrayList<>();
+	}
+	
+	public void cpuTurn() {
+		playerEnabled=false;
+		drawNextButton();
+		blinkAnimation();
+		playerEnabled=true;
 	}
 	
 	private void drawNextButton() {
@@ -27,27 +36,24 @@ public class GameScreenController {
 	}
 	
 	public void blinkAnimation() {
-		playerEnabled=false;
+		int priority = 0;
 		for (Integer integer : sequence) {
-			if (integer==1) {
-				gs.green.highlight();
-				threadSleep800();
-				gs.green.unHighlight();
-			} else if (integer==2) {
-				gs.red.highlight();
-				threadSleep800();
-				gs.red.unHighlight();
-			} else if (integer==3) {
-				gs.yellow.highlight();
-				threadSleep800();
-				gs.yellow.unHighlight();
-			} else if (integer==4) {
-				gs.blue.highlight();
-				threadSleep800();
-				gs.blue.unHighlight();
-			}
+			new Timer().schedule(new TimerTask() {          
+			    @Override
+			    public void run() {
+					if (integer==1) {
+						gs.green.blink();
+					} else if (integer==2) {
+						gs.red.blink();
+					} else if (integer==3) {
+						gs.yellow.blink();
+					} else if (integer==4) {
+						gs.blue.blink();
+					}   
+			    }
+			}, priority*800);
+			priority++;
 		}
-		playerEnabled=true;
 	}
 	
 	public void exit() {

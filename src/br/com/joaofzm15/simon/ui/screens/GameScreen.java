@@ -15,9 +15,10 @@ public class GameScreen implements ActionListener
 
 	protected Frame frame;
 	
+	protected Button startButton;
 	protected Button exitButton;
 	protected Score score;
-	protected Best bestLabel;
+	protected Best best;
 	
 	protected Button green;
 	protected Button red;
@@ -31,10 +32,13 @@ public class GameScreen implements ActionListener
 		score = new Score();
 		frame.getJFrame().add(score.getJLabel());
 		
-		bestLabel = new Best();
-		frame.getJFrame().add(bestLabel.getJLabel());
+		best = new Best();
+		frame.getJFrame().add(best.getJLabel());
 		
-		exitButton = new Button(240, 600, 150, 60, "E X I T", 0, 135, 255, 22, this);
+		startButton = new Button(225, 500, 180, 60, "S T A R T", 0, 200, 0, 26, this);
+		frame.getJFrame().add(startButton.getJButton());
+		
+		exitButton = new Button(240, 600, 150, 60, "E X I T", 200, 0, 0, 22, this);
 		frame.getJFrame().add(exitButton.getJButton());
 		
 		green = new Button(610, 50, 310, 310, "", 0, 80, 0, 22, this);
@@ -60,11 +64,13 @@ public class GameScreen implements ActionListener
 	}
 
 	public void refreshComponents() {
+		startButton.refresh();
+		threadSleep20();
 		exitButton.refresh();
 		threadSleep20();
 		score.refresh();
 		threadSleep20();
-		bestLabel.refresh();
+		best.refresh();
 		threadSleep20();
 		green.refresh();
 		threadSleep20();
@@ -78,8 +84,14 @@ public class GameScreen implements ActionListener
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getSource() == exitButton.getJButton()) {
 			controller.exit();
+			return;
+		}
+		
+		if (e.getSource() == startButton.getJButton()) {
+			controller.cpuTurn();
 			return;
 		}
 		

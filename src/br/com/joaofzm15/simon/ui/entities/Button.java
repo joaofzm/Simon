@@ -3,6 +3,8 @@ package br.com.joaofzm15.simon.ui.entities;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -58,6 +60,16 @@ public class Button {
 	
 	public void unHighlight() {
 		jButton.setBackground(new Color(red,green,blue));
+	}
+	
+	public void blink() {
+		highlight();
+		new Timer().schedule(new TimerTask() {          
+		    @Override
+		    public void run() {
+		    	unHighlight();
+		    }
+		}, 500);
 	}
 	
 	public void makeButtonsUnfocusable() {
