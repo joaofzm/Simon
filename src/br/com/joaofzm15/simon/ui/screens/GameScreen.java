@@ -3,6 +3,7 @@ package br.com.joaofzm15.simon.ui.screens;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import br.com.joaofzm15.simon.ui.entities.BestLabel;
 import br.com.joaofzm15.simon.ui.entities.Button;
 import br.com.joaofzm15.simon.ui.entities.Frame;
 
@@ -13,14 +14,17 @@ public class GameScreen implements ActionListener
 
 	protected Frame frame;
 	protected Button exitButton;
-
+	protected BestLabel bestLabel;
 
 	public GameScreen() {
-//		controller = new GameScreenController(this);
+		controller = new GameScreenController(this);
 		frame = new Frame("background.png");
 		
 		exitButton = new Button(240, 600, 150, 60, "E X I T", 100, 0, 0, 22, this);
 		frame.getJFrame().add(exitButton.getJButton());
+		
+		bestLabel = new BestLabel();
+		frame.getJFrame().add(bestLabel.getJLabel());
 
 //		refreshComponents();
 	}
