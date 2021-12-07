@@ -24,7 +24,7 @@ public class Score {
 
 	public Score() {
 		jLabel = new JLabel();
-		jLabel.setBounds(200,170,1000,300);
+		jLabel.setBounds(200,150,1000,300);
 		jLabel.setLayout(null);
 		jLabel.setText("Score: "+score);
 		jLabel.setFont(new Font("Impact",Font.BOLD, 60));

@@ -15,7 +15,7 @@ public class Best {
 
 	public Best() {
 		jLabel = new JLabel();
-		jLabel.setBounds(250,270,1000,300);
+		jLabel.setBounds(250,250,1000,300);
 		jLabel.setLayout(null);
 		jLabel.setText("Best : 0");
 		jLabel.setFont(new Font("Impact",Font.BOLD, 40));
