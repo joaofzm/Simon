@@ -94,7 +94,7 @@ public class GameScreen implements ActionListener
 		
 		if (e.getSource() == startButton.getJButton()) {
 			controller.cpuTurn();
-			startButton.getJButton().setEnabled(false);
+			startButton.getJButton().setVisible(false);
 			return;
 		}
 		

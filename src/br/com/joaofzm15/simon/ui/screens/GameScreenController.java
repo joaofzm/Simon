@@ -43,7 +43,7 @@ public class GameScreenController {
 			nextInputIndex=0;
 			playerEnabled=false;
 			gs.score.reset();
-			gs.startButton.getJButton().setEnabled(true);
+			gs.startButton.getJButton().setVisible(true);
 			new Thread(new SoundEffect("/error.wav")).start();
 			System.out.println("You lose");
 		}
