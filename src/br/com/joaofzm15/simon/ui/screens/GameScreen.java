@@ -88,6 +88,7 @@ public class GameScreen implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == exitButton.getJButton()) {
+			new Thread(new SoundEffect("/error.wav")).start();
 			controller.exit();
 			return;
 		}
